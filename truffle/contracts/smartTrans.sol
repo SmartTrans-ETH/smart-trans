@@ -18,18 +18,15 @@ contract smartTrans is ERC20 {
 
     function buy(uint256 amount) public payable {
         _mint(msg.sender, amount);
+        owner.transfer(msg.value);
     }
 
-    function use() public {
-        require(balanceOf(msg.sender) >= 1, "Saldo insuficiente");
-        burn(msg.sender, 1);
+    function use(address user) public onlyOwner {
+        require(balanceOf(user) >= 1, "Saldo insuficiente");
+        burn(user, 1);
     }
 
     function burn(address user, uint256 amount) public onlyOwner {
         _burn(user, amount);
-    }
-
-    function withdraw() public onlyOwner {
-        owner.transfer(address(this).balance);
     }
 }
