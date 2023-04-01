@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Station = require("../controller/station");
-
+const auth = require("../middlewares/authenticator");
 router.get("/", async (req, res) => {
   const stations = await Station.find_all();
   res.json(stations);
