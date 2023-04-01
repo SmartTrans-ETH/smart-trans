@@ -20,10 +20,6 @@ const Dashboard: React.FC<Props> = (props) => {
         .get("/user/auth")
         .then((res) => {
           setUser(res.data);
-          axios
-            .get(`/trip/user/${user!.id}`)
-            .then((res) => console.log(res.data))
-            .catch((err) => console.log(err));
         })
         .catch((err) => {
           navigate("/auth");

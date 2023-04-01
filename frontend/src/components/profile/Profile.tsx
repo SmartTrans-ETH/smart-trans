@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useMetamask } from "../../contexts/metamask";
 import { useUser } from "../../contexts/user";
@@ -8,26 +8,18 @@ import { ButtonContainer, Container } from "./style";
 import axios from "../../axios";
 
 const Profile: React.FC = () => {
-  const { setUser } = useUser();
+  //   const user = {
+  //     fullName: "Alberto Miranda",
+  //     birthday: "04/04/2000",
+  //     wallet: "0x3f46Fd945a43baF487ec3520C3cA9529A4039f19",
+  //     cpf: "777.777.777-77",
+  //     email: "alberto@gmail.com",
+  //   };
 
-  useEffect(() => {
-    axios
-      .get("/user/auth")
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  const user = {
-    nome: "Alberto Miranda",
-    birthday: "04/04/2000",
-    wallet: "0x3f46Fd945a43baF487ec3520C3cA9529A4039f19",
-    cpf: "777.777.777-77",
-    email: "alberto@gmail.com",
-  };
-
+  const { setUser, user } = useUser();
   const { setAccount } = useMetamask();
   const navigate = useNavigate();
+  if (user === null) return <h1>...carregando...</h1>;
 
   const logout = () => {
     setUser(null);
