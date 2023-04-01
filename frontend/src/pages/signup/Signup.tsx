@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { Button, MetamaskButton } from '../../components/button'
 import Input from '../../components/input'
 import { useMetamask } from '../../contexts/metamask'
-import { Form, MetamaskAccount } from './style'
+import { Form, MetamaskAccount, Container, Column, Label, Img, Title } from './style'
+
 
 declare global {
     interface Window {
@@ -54,27 +55,37 @@ const Signup: React.FC = (props) => {
     }
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)}>
-            <Input name="fullName" register={register} placeholder="Nome completo" />
-            <Input name="Data de nascimento" register={register} placeholder="Data de nascimento" type={'date'} />
-            <Input name="cpf" register={register} placeholder="CPF" />
-            <Input name="email" register={register} placeholder="Email" />
-            <Input name="password" register={register} placeholder="Password" />
-            <Input name="state" register={register} placeholder="Estado" />
-            <Input name="city" register={register} placeholder="Cidade" />
+        <Container>
+                <Column>
+                    <Img src="/auth_background.png" alt="Logo" />
+                </Column>
+                <Column>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
+                        <Title>Criar conta</Title>
+                        <h3 >Voltar para Login</h3>
+                        <Input name="fullName" register={register}  label="Nome completo" />
+                        <Input name="Data de nascimento" register={register} label="Data de nascimento" type={'date'} />
+                        <Input name="cpf" register={register} label="CPF" />
+                        <Input name="email" register={register} label="Email" />
+                        <Input name="password" register={register} label="Senha" />
+                        <Input name="state" register={register} label="Estado" />
+                        <Input name="city" register={register} label="Cidade" />
+                        <Label>Conecte a sua MetaMask</Label>
 
-            {account ? (
-                <MetamaskAccount>
-                    Endereço conectado: <br />
-                    {account}
-                </MetamaskAccount>
-            ) : (
-                <MetamaskButton type="button" onClick={connectToMetamask}>
-                    <img src="/metamask_logo.png" alt="Metamask" />
-                </MetamaskButton>
-            )}
-            <Button type="submit">Finalizar cadastro</Button>
-        </Form>
+                        {account ? (
+                            <MetamaskAccount>
+                                Endereço conectado: <br />
+                                {account}
+                            </MetamaskAccount>
+                        ) : (
+                            <MetamaskButton type="button" onClick={connectToMetamask}>
+                                <img src="/metamask_logo.png" alt="Metamask" />
+                            </MetamaskButton>
+                        )}
+                        <Button type="submit">Finalizar cadastro</Button>
+                </Form> 
+            </Column>
+        </Container>
     )
 }
 
