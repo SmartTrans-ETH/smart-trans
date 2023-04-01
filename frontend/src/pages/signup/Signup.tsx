@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { Button, MetamaskButton } from '../../components/button'
@@ -9,6 +9,7 @@ import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import axios from '../../axios'
+import { useUser } from '../../contexts/user'
 
 declare global {
     interface Window {
@@ -31,8 +32,8 @@ const schema = yup.object().shape({
 const Signup: React.FC = (props) => {
     const { account, setAccount } = useMetamask()
     const navigate = useNavigate()
+    const { user, setUser } = useUser()
 
-    function handleClick() {}
     const {
         register,
         handleSubmit,
@@ -48,12 +49,20 @@ const Signup: React.FC = (props) => {
         data.wallet = account
 
         try {
-            const {data: res} = await axios.post('/user/register', data)
-            console.log(res)
-        } catch( err) {
-            toast.error("Não foi possível registrar o usuário")
+            const { data: res } = await axios.post('/user/register', data)
+            setUser(res.user)
+            localStorage.setItem('token', res.token)
+            toast.success('Usuário criado com sucesso!')
+        } catch (err: any) {
+            toast.error(err.response.data)
         }
     }
+
+    useEffect(() => {
+        if (user) {
+            navigate('/dashboard')
+        }
+    }, [user])
 
     const connectToMetamask = async () => {
         if (window.ethereum) {
@@ -91,10 +100,16 @@ const Signup: React.FC = (props) => {
                     <Title>Criar conta</Title>
                     <h3>Voltar para Login</h3>
                     <Input name="nome" error={errors['nome']} register={register} label="Nome completo" />
-                    <Input name="birthday" error={errors['birthday']} register={register} label="Data de nascimento" type={'date'} />
+                    <Input
+                        name="birthday"
+                        error={errors['birthday']}
+                        register={register}
+                        label="Data de nascimento"
+                        type={'date'}
+                    />
                     <Input name="cpf" error={errors['cpf']} register={register} label="CPF" />
                     <Input name="email" error={errors['email']} register={register} label="Email" />
-                    <Input name="pass" error={errors['pass']} register={register} label="Senha" type="password"/>
+                    <Input name="pass" error={errors['pass']} register={register} label="Senha" type="password" />
                     <Input name="address" error={errors['address']} register={register} label="Endereço" />
                     <Input name="city" error={errors['city']} register={register} label="Cidade" />
                     <Input name="state" error={errors['state']} register={register} label="Estado" />

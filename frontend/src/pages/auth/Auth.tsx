@@ -19,6 +19,7 @@ const Auth: React.FC<Props> = (props) => {
         handleSubmit,
         formState: { errors },
     } = useForm()
+    
     const onSubmit = async (data) => {
         try {
             const { data: res } = await axios.post('/user/login', data)

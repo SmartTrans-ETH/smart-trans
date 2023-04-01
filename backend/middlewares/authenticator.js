@@ -11,7 +11,7 @@ const auth = async (req, res, next) => {
   try {
     const [token, tokenType] = Token.split(" ");
 
-    const { sub } = jwt.verify(token, "4b0d30a9f642b3bfff67d0b5b28371a9");
+    const { sub } = jwt.verify(token, process.env.JWT_SECRET);
     req.id = sub;
     
     next()

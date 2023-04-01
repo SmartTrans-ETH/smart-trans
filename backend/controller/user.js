@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const Usuario = require('../models/user')
 const { where } = require('sequelize')
 class User {
-    async register(name, cpf, birthday, email, password, address, city, state) {
+    async register(nome, cpf, birthday, email, password, address, city, state, wallet) {
         if (password) {
             var pass = await bcrypt.hash(password, 10)
         }
@@ -12,24 +12,41 @@ class User {
         const user = await Usuario.findOne({ where: { email: email } })
 
         if (user) {
-            throw new Error('email já cadastrado')
+            throw new Error('Email já cadastrado')
         }
+
+        const userFromCpf = await Usuario.findOne({ where: { cpf: cpf } })
+        if (userFromCpf) {
+            throw new Error('CPF já cadastrado')
+        }
+
         const newUser = new Usuario({
-            nome: name,
-            cpf: cpf,
-            birthday: birthday,
-            email: email,
+            nome,
+            cpf,
+            birthday,
+            email,
             password: pass,
-            address: address,
-            city: city,
-            state: state,
+            address,
+            city,
+            state,
+            wallet,
         })
 
         try {
-            await newUser.save()
-            return newUser
+            const createdUser = await newUser.save()
+            const token = jwt.sign(
+                {
+                    email: createdUser.email,
+                },
+                process.env.JWT_SECRET,
+                {
+                    subject: createdUser.id.toString(),
+                    expiresIn: '1h',
+                }
+            )
+            return { user: createdUser, token }
         } catch (err) {
-            throw new Error('Email ou CPF já cadastrado')
+            throw new Error()
         }
     }
 
@@ -59,7 +76,7 @@ class User {
             {
                 email: user.email,
             },
-            '4b0d30a9f642b3bfff67d0b5b28371a9',
+            process.env.JWT_SECRET,
             {
                 subject: user.id.toString(),
                 expiresIn: '1h',

@@ -6,20 +6,26 @@ const auth = require("../middlewares/authenticator");
 const User = new user.User();
 
 router.post("/register", async (req, res) => {
-  const { name, cpf, birthday, email, pass, address, city, state } = req.body;
+  try {
+    const { nome, cpf, birthday, email, pass, address, city, state, wallet } = req.body;
 
-  const users = await User.register(
-    name,
-    cpf,
-    birthday,
-    email,
-    pass,
-    address,
-    city,
-    state
-  );
-
-  res.json(users);
+    const users = await User.register(
+      nome,
+      cpf,
+      birthday,
+      email,
+      pass,
+      address,
+      city,
+      state, wallet
+    );
+  
+    res.json(users);
+  }catch(err) {
+    console.log(err)
+    res.status(500).send(err.message)
+  }
+ 
 });
 
 router.post("/login", async (req, res) => {
