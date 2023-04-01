@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { Button, MetamaskButton } from '../../components/button'
 import Input from '../../components/input'
 import { useMetamask } from '../../contexts/metamask'
@@ -14,13 +15,18 @@ declare global {
 
 const Signup: React.FC = (props) => {
     const { account, setAccount } = useMetamask()
+    const navigate = useNavigate()
+
+    function handleClick() {}
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
     } = useForm()
-    const onSubmit = (data) => console.log('alou')
+    const onSubmit = (data) => {
+        navigate('/dashboard')
+    }
 
     const connectToMetamask = async () => {
         if (window.ethereum) {
@@ -50,9 +56,7 @@ const Signup: React.FC = (props) => {
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
             <Input name="fullName" register={register} placeholder="Nome completo" />
-
             <Input name="Data de nascimento" register={register} placeholder="Data de nascimento" type={'date'} />
-
             <Input name="cpf" register={register} placeholder="CPF" />
             <Input name="email" register={register} placeholder="Email" />
             <Input name="password" register={register} placeholder="Password" />

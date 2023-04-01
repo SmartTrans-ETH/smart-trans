@@ -6,6 +6,7 @@ import GlobalStyles from './styles/global'
 import Auth from './pages/auth/Auth'
 import Signup from './pages/signup/Signup'
 import withContexts from './HOC/withContexts'
+import Dashboard from './pages/dashboard/Dashboard'
 
 function App() {
     const router = createBrowserRouter([
@@ -16,6 +17,10 @@ function App() {
         {
             path: '/signup',
             element: <Signup />,
+        },
+        {
+            path: '/dashboard',
+            element: <Dashboard />,
         },
     ])
     return (

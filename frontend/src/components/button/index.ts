@@ -11,7 +11,7 @@ interface ButtonProps {
 
 export const Button = styled.button<ButtonProps>`
     border-radius: 10px;
-    background: linear-gradient(to right, ${props=>props.theme.colors.primarySecondary}, #312D79);
+    background: linear-gradient(to right, ${(props) => props.theme.colors.primarySecondary}, #312d79);
     font-size: 18px;
     padding: 12px 0;
     width: 100%;
@@ -27,9 +27,13 @@ export const Button = styled.button<ButtonProps>`
     align-items: center;
     justify-content: center;
     grid-gap: 10px;
-    font-family: ${props => props.theme.fontFamily};
+    font-family: ${(props) => props.theme.fontFamily};
     color: ${(props) => props.theme.colors.white};
     cursor: pointer;
+
+    &:disabled {
+        background: ${(props) => props.theme.colors.greyDark3};
+    }
 
     ${(props) => props.lessPadding && `padding: 12px 50px;`}
 
@@ -77,9 +81,8 @@ export const MetamaskButton = styled.button`
     display: block;
     position: relative;
     height: 5rem;
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.primary};
     border-radius: 5px;
-
 
     img {
         height: 100%;
