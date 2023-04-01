@@ -20,6 +20,14 @@ class Station {
     });
     return station;
   }
+  async get_station(station_id) {
+    const station = await Stations.findOne({
+      where: {
+        station_id: station_id,
+      },
+    });
+    return station;
+  }
 }
 
 module.exports = new Station();
