@@ -42,7 +42,7 @@ export const Button = styled.button<ButtonProps>`
     ${(props) =>
         props.light &&
         css`
-            background-color: ${({ theme }) => theme.colors.greyLight3} !important;
+            background: ${({ theme }) => theme.colors.greyLight4} !important;
             color: ${({ theme }) => theme.colors.greyDark1} !important;
         `}
     
