@@ -30,7 +30,7 @@ export const Right = styled.div`
 
 export const Form = styled.div`
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 40vw;
@@ -38,7 +38,7 @@ export const Form = styled.div`
     flex-direction: column;
     grid-gap: 2rem;
     padding: 4rem;
-    margin: auto 0;
+    margin: auto 0 ;
 
     h2 {
         font-size: 3rem;
@@ -53,4 +53,14 @@ export const Form = styled.div`
         margin: 2rem 0;
         font-size: 1.6rem;
     }
+`
+export const Logo = styled.img`
+   
+    width: 25%;
+    margin-top: 5%;
+    margin-left: 36%;
+    display: flex;
+    position: center;
+    
+
 `

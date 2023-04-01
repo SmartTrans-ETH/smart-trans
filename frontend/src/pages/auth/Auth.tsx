@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Button } from '../../components/button'
 import Input from '../../components/input'
-import { Form, Left, PageContainer, Right } from './style'
+import { Form, Left, PageContainer, Right, Logo} from './style'
 import { useNavigate } from 'react-router-dom'
 
 interface Props {}
@@ -20,6 +20,7 @@ const Auth: React.FC<Props> = (props) => {
         <PageContainer>
             <Left><img src="/auth_background.png" alt="Background" /></Left>
             <Right> 
+                <Logo src="/smart_trans.svg"></Logo>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <h2>Bem Vindo!</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
