@@ -7,6 +7,11 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 contract smartTrans is ERC20 {
     address public owner;
 
+    modifier onlyOwner() {
+        require(msg.sender == owner, "");
+        _;
+    }
+
     constructor() ERC20("SmartTrans", "SMT") {
         owner = msg.sender;
     }
@@ -20,8 +25,11 @@ contract smartTrans is ERC20 {
         burn(msg.sender, 1);
     }
 
-    function burn(address user, uint256 amount) public {
-        require(msg.sender == owner, "");
+    function burn(address user, uint256 amount) public onlyOwner {
         _burn(user, amount);
+    }
+
+    function withdraw() public onlyOwner {
+        owner.transfer(address(this).balance);
     }
 }

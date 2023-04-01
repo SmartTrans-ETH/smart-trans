@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
   res.json(trips);
 });
 
-router.get("/user/trips", auth, async (req, res) => {
+router.get("/user", auth, async (req, res) => {
   const trips = await Trip.find_all_user(req.id);
   res.json(trips);
 });
