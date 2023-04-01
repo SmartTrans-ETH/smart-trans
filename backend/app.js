@@ -23,7 +23,7 @@ app.use(
 
   try {
     const resultado = await database.sync();
-    console.log("foi");
+    console.log("Banco de dados conectado com sucesso!");
   } catch (error) {
     console.log(error);
   }
@@ -38,7 +38,7 @@ app.use("/user", userRouter);
 app.use("/station", stationRouter);
 app.use("/trip", tripRouter);
 
-const port = 3000;
+const port = 3001;
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

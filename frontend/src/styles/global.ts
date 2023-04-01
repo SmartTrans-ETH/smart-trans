@@ -18,4 +18,9 @@ export default createGlobalStyle`
         position: relative;
         min-height: 100vh;
     }
+
+    .Toastify {
+        font-size: 14px !important;
+    }
+    
 `

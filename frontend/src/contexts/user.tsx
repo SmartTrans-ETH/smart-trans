@@ -1,11 +1,16 @@
 import React, { createContext, useState, useContext } from 'react'
 
 interface User {
-    _id: string
-    name: string
-    lastName: string
+    id: number
+    nome: string
+    cpf: string
+    birthday: Date
     email: string
-    wallet: string
+    address: string
+    city: string
+    state: string
+    createdAt: Date
+    updatedAt: Date
 }
 
 interface UserContextInterface {
@@ -16,13 +21,7 @@ interface UserContextInterface {
 const UserContext = createContext<UserContextInterface | null>(null)
 
 export default function UserProvider({ children }: any) {
-    const [user, setUser] = useState<User | null>({
-        name: 'Rebeca',
-        lastName: 'Dias',
-        _id: '3891238921',
-        email: 'rebeca.teste@gmail.com',
-        wallet: '0xuo4u1o4u12491',
-    })
+    const [user, setUser] = useState<User | null>(null)
 
     return (
         <UserContext.Provider

@@ -4,11 +4,8 @@ const user = require("../controller/user");
 const auth = require("../middlewares/authenticator");
 
 const User = new user.User();
-function foi() {
-  return "user validado";
-}
 
-router.get("/register", async (req, res) => {
+router.post("/register", async (req, res) => {
   const { name, cpf, birthday, email, pass, address, city, state } = req.body;
 
   const users = await User.register(
@@ -25,15 +22,14 @@ router.get("/register", async (req, res) => {
   res.json(users);
 });
 
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   const { email, pass } = req.body;
   const token = await User.Authentication(email, pass);
   res.json(token);
 });
-router.get("/auth", async (req, res) => {
-  const { token } = req.body;
-  const autho = await auth(req, res, foi);
-  res.send(autho);
+router.get("/auth", auth, async (req, res) => {
+  const user = await User.getInfos(req.id)
+  res.send(user);
 });
 
 module.exports = router;

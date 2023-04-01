@@ -7,6 +7,8 @@ import Auth from './pages/auth/Auth'
 import Signup from './pages/signup/Signup'
 import withContexts from './HOC/withContexts'
 import Dashboard from './pages/dashboard/Dashboard'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
     const router = createBrowserRouter([
@@ -27,6 +29,7 @@ function App() {
         <ThemeProvider theme={lightTheme}>
             <RouterProvider router={router} />
             <GlobalStyles />
+            <ToastContainer />
         </ThemeProvider>
     )
 }

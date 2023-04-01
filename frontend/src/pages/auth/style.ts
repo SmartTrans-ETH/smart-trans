@@ -16,7 +16,7 @@ export const Left = styled.div`
     img {
         width: 100%;
         height: 100%;
-        object-fit : cover;
+        object-fit: cover;
     }
 `
 
@@ -28,7 +28,7 @@ export const Right = styled.div`
     left: 50vw;
 `
 
-export const Form = styled.div`
+export const Form = styled.form`
     position: absolute;
     top: 55%;
     left: 50%;
@@ -47,7 +47,7 @@ export const Form = styled.div`
     p {
         font-size: 1.2rem;
     }
-    
+
     & > span {
         text-align: center;
         margin: 2rem 0;

@@ -4,35 +4,53 @@ import { Button } from '../../components/button'
 import Input from '../../components/input'
 import { Form, Left, PageContainer, Right, Logo} from './style'
 import { useNavigate } from 'react-router-dom'
+import axios from '../../axios'
+
+import { toast } from 'react-toastify'
+import { useUser } from '../../contexts/user'
 
 interface Props {}
 
 const Auth: React.FC<Props> = (props) => {
     const navigator = useNavigate()
+    const { setUser } = useUser()
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm()
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = async (data) => {
+        try {
+            const { data: res } = await axios.post('/user/login', data)
+            setUser(res.user)
+            localStorage.setItem('token', res.token)
+            toast.success('Login realizado com sucesso!')
+            navigator('/dashboard')
+        } catch (err: any) {
+            toast.error(err.message)
+        }
+    }
 
     return (
         <PageContainer>
-            <Left><img src="/auth_background.png" alt="Background" /></Left>
-            <Right> 
-                <Logo src="/smart_trans.svg"></Logo>
+            <Left>
+                <img src="/auth_background.png" alt="Background" />
+            </Left>
+            <Right>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <h2>Bem Vindo!</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <Input name="email" register={register} placeholder="Email" label='Email' />
+                    <Input name="email" register={register} placeholder="Email" label="Email" />
 
-                    <Input name="password" register={register} placeholder="Senha" label='Senha' />
+                    <Input name="pass" type="password" register={register} placeholder="Senha" label="Senha" />
 
-                    <Button type='submit'>Login</Button>
+                    <Button type="submit">Login</Button>
 
                     <span>ou</span>
 
-                    <Button type='button' light onClick={() => navigator('/signup')}>Criar conta</Button>
+                    <Button type="button" light onClick={() => navigator('/signup')}>
+                        Criar conta
+                    </Button>
                 </Form>
             </Right>
         </PageContainer>
