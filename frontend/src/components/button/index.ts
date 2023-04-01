@@ -81,6 +81,7 @@ export const MetamaskButton = styled.button`
     display: block;
     position: relative;
     height: 5rem;
+    margin-bottom: 1rem;
     background-color: ${(props) => props.theme.colors.primary};
     border-radius: 5px;
 

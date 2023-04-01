@@ -8,8 +8,7 @@ export const Form = styled.form`
     padding: 4rem;
 `
 export const MetamaskAccount = styled.div`
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 16px;
     text-align: center;
 `
 export const Container = styled.div`
@@ -24,7 +23,7 @@ export const Column = styled.div`
 
 export const Label = styled.label`
    
-    margin-bottom: 6px;
+    margin-bottom: -8px;
     font-size: 16px;
     font-weight: 400;
     display: block;

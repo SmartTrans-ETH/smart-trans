@@ -13,6 +13,7 @@ interface Props {}
 const Dashboard: React.FC<Props> = (props) => {
     const { user, setUser } = useUser()
     const navigate = useNavigate()
+    
     useEffect(() => {
         if (!user) {
             axios

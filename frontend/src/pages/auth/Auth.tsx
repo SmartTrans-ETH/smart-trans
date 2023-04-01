@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button } from '../../components/button'
 import Input from '../../components/input'
-import { Form, Left, PageContainer, Right, Logo} from './style'
+import { Form, Left, PageContainer, Right, Logo } from './style'
 import { useNavigate } from 'react-router-dom'
 import axios from '../../axios'
 
@@ -13,7 +13,7 @@ interface Props {}
 
 const Auth: React.FC<Props> = (props) => {
     const navigator = useNavigate()
-    const { setUser } = useUser()
+    const { user, setUser } = useUser()
     const {
         register,
         handleSubmit,
@@ -25,11 +25,16 @@ const Auth: React.FC<Props> = (props) => {
             setUser(res.user)
             localStorage.setItem('token', res.token)
             toast.success('Login realizado com sucesso!')
-            navigator('/dashboard')
         } catch (err: any) {
             toast.error(err.message)
         }
     }
+
+    useEffect(() => {
+        if (user) {
+            navigator('/dashboard')
+        }
+    }, [user])
 
     return (
         <PageContainer>

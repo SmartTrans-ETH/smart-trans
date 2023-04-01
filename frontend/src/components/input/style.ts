@@ -25,6 +25,7 @@ export const InputContainer = styled.div`
         font-size: 12px;
         color: red;
         margin-top: 4px;
+        display: block;
     }
 
     div {
