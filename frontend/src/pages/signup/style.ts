@@ -35,6 +35,13 @@ export const Img = styled.img`
     height: 110%;
 
 `
+export const Logo = styled.img`
+   
+    width: 25%;
+    margin-top: 5%;
+    margin-left: 60%;
+
+`
 export const Title = styled.h1`
    
     font-size: 30px;

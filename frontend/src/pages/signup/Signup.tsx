@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Button, MetamaskButton } from '../../components/button'
 import Input from '../../components/input'
 import { useMetamask } from '../../contexts/metamask'
-import { Form, MetamaskAccount, Container, Column, Label, Img, Title } from './style'
+import { Form, MetamaskAccount, Container, Column, Label, Img, Title, Logo } from './style'
 
 
 declare global {
@@ -60,6 +60,7 @@ const Signup: React.FC = (props) => {
                     <Img src="/auth_background.png" alt="Logo" />
                 </Column>
                 <Column>
+                    <Logo src="/smart_trans.svg"></Logo>
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Title>Criar conta</Title>
                         <h3 >Voltar para Login</h3>
@@ -82,6 +83,7 @@ const Signup: React.FC = (props) => {
                                 <img src="/metamask_logo.png" alt="Metamask" />
                             </MetamaskButton>
                         )}
+                        <br></br>
                         <Button type="submit">Finalizar cadastro</Button>
                 </Form> 
             </Column>
