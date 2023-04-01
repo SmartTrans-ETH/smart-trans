@@ -4,7 +4,9 @@ const user = require("../controller/user");
 const auth = require("../middlewares/authenticator");
 
 const User = new user.User();
-function foi() {}
+function foi() {
+  return "user validado";
+}
 
 router.get("/register", async (req, res) => {
   const { name, cpf, birthday, email, pass, address, city, state } = req.body;
