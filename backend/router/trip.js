@@ -25,4 +25,11 @@ router.get("/station", async (req, res) => {
   res.json(trips);
 });
 
+router.get("/station2", async (req, res) => {
+  const { station_id } = req.params;
+  const trips = await Trip.find_all_station(station_id);
+  res.json(trips);
+});
+
+
 module.exports = router;
