@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const Usuario = require("../models/user");
 const { where } = require("sequelize");
+const moment = require("moment");
 class User {
   async register(
     nome,
@@ -102,15 +103,19 @@ class User {
   }
 
   async getInfos(id) {
-    const user = await Usuario.findOne({
+    let user = await Usuario.findOne({
       where: { id },
-      attributes: { exclude: ["password"] },
+      attributes: { exclude: ["password", "birthday"] },
     });
 
     if (user.length == 0) {
       throw new Error("Usuário não encontrado");
     }
-
+    user = {
+      ...user,
+      birthday: moment(Date(user["birthday"])).format("DD/MM/YYYY"),
+    };
+    console.log(moment(Date(user["birthday"])).format("DD/MM/YYYY"));
     return user;
   }
 }
