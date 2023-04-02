@@ -30,8 +30,13 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { email, pass } = req.body;
-  const token = await User.Authentication(email, pass);
-  res.json(token);
+  try {
+    const token = await User.Authentication(email, pass);
+    res.json(token);
+
+  } catch (err) {
+    res.status(500).send(err.message)
+  }
 });
 router.get("/auth", auth, async (req, res) => {
   const user = await User.getInfos(req.id)

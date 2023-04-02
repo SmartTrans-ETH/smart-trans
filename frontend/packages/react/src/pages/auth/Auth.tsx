@@ -28,7 +28,7 @@ const Auth: React.FC<Props> = (props) => {
             localStorage.setItem('token', res.token)
             toast.success('Login realizado com sucesso!')
         } catch (err: any) {
-            toast.error(err.message)
+            toast.error(err.response.data)
         }
     }
 
