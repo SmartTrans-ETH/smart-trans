@@ -32,7 +32,6 @@ const History: React.FC<Props> = (props) => {
     axios
       .get("/trip/user")
       .then((res) => {
-        console.log(res.data);
         setTransactions(res.data);
       })
       .catch((err) => console.log(err));

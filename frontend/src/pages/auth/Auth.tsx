@@ -32,6 +32,7 @@ const Auth: React.FC<Props> = (props) => {
     }
 
     useEffect(() => {
+        console.log(user)
         if (user) {
             navigator('/dashboard')
         }
