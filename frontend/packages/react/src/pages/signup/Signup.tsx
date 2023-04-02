@@ -10,6 +10,7 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import axios from '../../axios'
 import { useUser } from '../../contexts/user'
+import AnimatedCard from '../../components/3dCard/3dCard'
 
 declare global {
     interface Window {
@@ -94,6 +95,7 @@ const Signup: React.FC = (props) => {
         <Container>
             <Column>
                 <Img src="/auth_background.png" alt="Logo" />
+               < AnimatedCard />
             </Column>
             <Column>
                 <Logo src="/smart_trans.svg"></Logo>
