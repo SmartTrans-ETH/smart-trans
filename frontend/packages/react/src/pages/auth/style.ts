@@ -55,12 +55,12 @@ export const Form = styled.form`
     }
 `
 export const Logo = styled.img`
-   
+
     width: 25%;
     margin-top: 5%;
     margin-left: 36%;
     display: flex;
     position: center;
-    
+
 
 `

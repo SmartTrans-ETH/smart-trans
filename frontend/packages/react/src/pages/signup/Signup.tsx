@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button, MetamaskButton } from '../../components/button'
 import Input from '../../components/input'
 import { useMetamask } from '../../contexts/metamask'
@@ -74,7 +74,6 @@ const Signup: React.FC = (props) => {
 
                 // Checar aqui se carteira da metamask é a mesma que está cadastrada no sistema (caso seja a página de login)
                 setAccount(res[0])
-                console.log(window.ethereum.chainId)
                 const alfajores = '0xaef3'
 
                 if (window.ethereum.chainId !== alfajores) {
@@ -101,7 +100,7 @@ const Signup: React.FC = (props) => {
                 <Logo src="/smart_trans.svg"></Logo>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Title>Criar conta</Title>
-                    <h3>Voltar para Login</h3>
+                    <Link to={"/auth"}>Voltar para Login</Link>
                     <Input name="nome" error={errors['nome']} register={register} label="Nome completo" />
                     <Input
                         name="birthday"

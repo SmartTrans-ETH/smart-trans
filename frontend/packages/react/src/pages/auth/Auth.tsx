@@ -8,6 +8,7 @@ import axios from '../../axios'
 
 import { toast } from 'react-toastify'
 import { useUser } from '../../contexts/user'
+import AnimatedCard from '../../components/3dCard/3dCard'
 
 interface Props {}
 
@@ -41,6 +42,7 @@ const Auth: React.FC<Props> = (props) => {
         <PageContainer>
             <Left>
                 <img src="/auth_background.png" alt="Background" />
+                <AnimatedCard />
             </Left>
             <Right>
                 <Form onSubmit={handleSubmit(onSubmit)}>

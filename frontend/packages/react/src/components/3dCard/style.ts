@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    position: absolute;
+    position: fixed;
     z-index: 10;
-    width: 40vw;
-    height: 40vh;
+    width: 30vw;
+    height: 30vw;
     top: 50%;
-    left: 50%;
+    left: 23%;
     transform: translate(-50%, -50%);
 
 `
