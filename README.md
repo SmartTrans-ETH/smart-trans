@@ -4,13 +4,30 @@
 ## [Trailer]()
 <img src="https://user-images.githubusercontent.com/99221221/229325626-232c180c-e069-40c1-ad65-29eb01350209.png" alt="app-screens-mockup"/>
 
+## Problema
+Nas grandes metrópoles, é possível vivenciar diversos problemas. Um deles, com certeza, é o transporte público, onde o sistema é falho várias vezes em um curto período de tempo, dificultando a vida da população brasileira.
+
 ## Nossa Solução
-Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Criação de um Dapp que, por meio de recargas utilizando blockchain, viabiliza transações rápidas e confiáveis, com o principal intuito de agilizar a vida da população.
 
 <img src="https://user-images.githubusercontent.com/99221221/229325685-33a633f6-4eca-4669-bb71-0d54391792de.png"/>
 
+## Proposta de Valor
+<b>Tarefas do usuário</b>
+- Ir até o ponto de validação de recarga mais próximo
+- Recargas utilizando dinheiro físico, por falta de possibilidades
+- Problemas constantes de desmagentização dos cartões de transporte
+
+<b>Dores do usuário</b>
+- Servidores constantemente fora do ar
+- Falta de agilidade nos processos do cotidiano
+- Poucas plataformas confiáveis de recargas
+
+<b>Ganhos do usuário</b>
+- Sistema confiável
+- Recarga com tempo de resposta extremamente baixo
+- Agilidade e simplicidade no cotidiano
+- 
 ## Documentação
 
 A documentação com informações da visão geral do projeto, análise de negócio, requisitos do sistema e elaboração do sistema pode poder ser encontrada clicando [aqui](https://docs.google.com/document/d/1ri0ooG3A1cBvLzudbv26BW_Fm4kQmBbB6WtQr-WMI84/edit?usp=sharing)
@@ -117,7 +134,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
       <a href="https://www.linkedin.com/in/alexandrefonseca00/">
         <img src="https://avatars.githubusercontent.com/u/80794067?v=4" width="100px;" alt="Alexandre Fonseca profile image"/><br>
         <sub>
-          <b>Alexandre Fonseca de Sousa</b>
+          <b>Alexandre Fonseca de Souza</b>
         </sub>
       </a>
     </td>
