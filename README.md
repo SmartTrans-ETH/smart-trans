@@ -88,7 +88,30 @@ As pastas desse projeto foram organizadas conforme exemplo a seguir:
 
 ## Arquitetura do sistema
 
-<img src="" alt="arquitetura do sistema"/>
+<img src="https://user-images.githubusercontent.com/99221221/229352751-2e778f9d-559d-4875-a4b0-4c964d0f46f0.png" alt="arquitetura do sistema"/>
+Descrição das ligações:
+
+1 - O usuário aproxima o cartão NFC contendo sua frase mnemônica para leitura.
+2 - O leitor RFID lê os dados do cartão e os envia para o microcontrolador Raspberry Pi Pico W.
+3 - O microcontrolador, ao receber os dados, os envia ao broker utilizando o protocolo MQTT.
+4 - O broker, por sua vez, envia os dados ao backend da solução.
+5 - Utilizando os dados recebidos, o backend se comunica com o Smart Contract para verificar se há recursos suficientes na carteira para liberar a catraca.
+6 - Os dados de resposta são enviador a outro microcontrolador que controla as catracas 
+7 - Se existir saldo suficiente, a catraca será liberada (No escopo do MVP acende um led verde).
+8 - Caso contrário, a catraca não será liberada (No escopo do MVP acende um led vermelho).
+
+
+<img src="https://user-images.githubusercontent.com/99221221/229352756-c977c571-a80d-4dce-bf92-e7d09ff377ed.png" alt="arquitetura do sistema"/>
+Descrição das ligações:
+
+1 - O acesso ao dApp encaminha para uma página inicial de 
+2 - Ao acessar a página de login, os usuários cadastrados serão redirecionados para um dashboard que permite a compra de bilhetes e acesso ao histórico de viagens.
+3 - Os usuários que ainda não possuem cadastro podem acessar a página de registro na plataforma.
+4 - Durante o processo de registro, o usuário precisará conectar sua carteira MetaMask.
+5 - xDepois que o cadastro for concluído, o usuário será redirecionado à página de login para começar o fluxo novamente.
+
+
+
 
 ## Tecnologias
 
