@@ -18,7 +18,7 @@ contract smartTrans is ERC20 {
 
     function buy(uint256 amount) public payable {
         _mint(msg.sender, amount);
-        owner.transfer(msg.value);
+        payable(owner).transfer(msg.value);
     }
 
     function use(address user) public onlyOwner {

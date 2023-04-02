@@ -105,7 +105,7 @@ class User {
   async getInfos(id) {
     let user = await Usuario.findOne({
       where: { id },
-      attributes: { exclude: ["password", "birthday"] },
+      attributes: { exclude: ["password"] },
     });
 
     if (user.length == 0) {
@@ -115,7 +115,6 @@ class User {
       ...user,
       birthday: moment(Date(user["birthday"])).format("DD/MM/YYYY"),
     };
-    console.log(moment(Date(user["birthday"])).format("DD/MM/YYYY"));
     return user;
   }
 }
