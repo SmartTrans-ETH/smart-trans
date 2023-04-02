@@ -1,4 +1,4 @@
-const { ethers } = require('ethers')
+const  {ethers} = require('ethers')
 const smartTransJson = require('../contracts/smartTrans.json')
 
 const SmartTransContract = async (mnemonic) => {

@@ -97,7 +97,6 @@ const Signup: React.FC = (props) => {
                < AnimatedCard />
             </Column>
             <Column>
-                <Logo src="/smart_trans.svg"></Logo>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Title>Criar conta</Title>
                     <Link to={"/auth"}>Voltar para Login</Link>

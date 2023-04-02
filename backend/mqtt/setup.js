@@ -1,5 +1,7 @@
 const mqtt = require('mqtt')
-const { transaction } = require('./subscribes')
+const { SmartTransContract } = require('../ethers')
+const { ethers } = require('ethers')
+const trip = require('../controller/trip')
 
 class MqttHandler {
     constructor() {
@@ -10,6 +12,29 @@ class MqttHandler {
         this.password = process.env.MQTT_PASSWORD
     }
 
+    async transfer(info) {
+        try {
+            const smartTransContract = await SmartTransContract(process.env.MNEMONIC)
+            const wallet = ethers.Wallet.fromMnemonic(info[0])
+            const balanceOf = await smartTransContract.balanceOf(wallet.address)
+           
+            if (balanceOf.toNumber() == 0) {
+                this.mqttClient.publish('response', '0')
+                console.log("Usuário sem cotas o suficiente!")
+                return
+            }
+            this.mqttClient.publish('response', '1')
+            console.log(wallet.address)
+            const tx = await smartTransContract.use(wallet.address)
+            await tx.wait()
+
+            await trip.create_trip(parseInt(info[1]), info[2])
+            console.log("Sucesso!")
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     connect() {
         // Conexão com o MQTT
         this.mqttClient = mqtt.connect(this.host, {
@@ -18,7 +43,7 @@ class MqttHandler {
             host: this.host,
             port: this.port,
             protocol: this.protocol,
-            reconnectPeriod: 5000 // Try reconnecting in 5 seconds if connection is lost
+            reconnectPeriod: 5000, // Try reconnecting in 5 seconds if connection is lost
         })
 
         // Caso a conexão falhe
@@ -33,13 +58,19 @@ class MqttHandler {
         })
 
         // Escutar pelo tópico /location
-        this.mqttClient.subscribe('transaction', { qos: 0 })
+        this.mqttClient.subscribe('transfer', { qos: 0 })
+        // const parsedMsg = [process.env.MNEMONIC, 1, 1]
+        // this.transfer(parsedMsg)
 
+        const scope = this
         // Função executada quando uma mensagem chega
         this.mqttClient.on('message', function (topic, message) {
+            const msg = message.toString()
+            const parsedMsg = msg.split(', ')
+           
             switch (topic) {
-                case 'transaction':
-                    transaction(JSON.parse(message), this.mqttClient)
+                case 'transfer':
+                    scope.transfer(parsedMsg)
                     break
             }
         })

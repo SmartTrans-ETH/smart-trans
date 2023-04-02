@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const Usuario = require("../models/user");
-const { where } = require("sequelize");
-const moment = require("moment");
+
 class User {
   async register(
     nome,
@@ -111,7 +110,6 @@ class User {
     if (user.length == 0) {
       throw new Error("Usuário não encontrado");
     }
-    user.birthday = moment(Date(user["birthday"])).format("DD/MM/YYYY")
     
     return user;
   }

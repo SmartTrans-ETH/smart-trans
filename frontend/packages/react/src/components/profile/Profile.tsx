@@ -7,6 +7,7 @@ import { Title } from '../title/Title'
 import { ButtonContainer, Container } from './style'
 import axios from '../../axios'
 import Loader from '../loader'
+import { toast } from 'react-toastify'
 
 const Profile: React.FC = () => {
     const { user, setUser } = useUser()
@@ -17,6 +18,7 @@ const Profile: React.FC = () => {
     const logout = () => {
         setUser(null)
         setAccount(null)
+        toast.success("Logout realizado com sucesso!")
         localStorage.removeItem('token')
         navigate('/auth')
     }
