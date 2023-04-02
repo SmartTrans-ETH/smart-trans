@@ -33,7 +33,7 @@ const BuyTicket: React.FC<Props> = (props) => {
       setTicketNumberAvailable(parseInt(formatedBalance));
     } catch (err) {
       console.log(err);
-      toast.error('Erro na transação!');
+      toast.error('Erro ao buscar informações!');
     }
   };
 
