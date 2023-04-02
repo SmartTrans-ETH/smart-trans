@@ -187,10 +187,12 @@ Para rodar o front, basta executar os seguintes comandos:
 ```
 cd frontend/snap
 yarn serve
-cd ..
-cd react
+
+cd frontend/react
 yarn start
 ```
+
+ambos comandos devem ser rodados em git bash diferentes
 
 Após isso, você terá uma aplicação metamask snaps rodando no endereço http://localhost:8080 e o frontend do projeto no endereço http://localhost:3000.
 
