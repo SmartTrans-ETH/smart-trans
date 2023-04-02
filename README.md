@@ -8,7 +8,18 @@
 A queda constante dos sistemas de transporte nas grandes metrópoles brasileiras é um problema que afeta milhões de pessoas todos os dias. Os atrasos e interrupções no funcionamento dos transportes públicos são fonte de grande estresse e dificuldade para os cidadãos, que muitas vezes precisam se deslocar para trabalhar, estudar ou cumprir outras obrigações diárias. Além disso, os transtornos causados pelos problemas de transporte podem afetar a economia e a qualidade de vida de uma cidade, tornando-a menos produtiva e menos atraente para investimentos e turismo. 
 
 ## Nossa Solução
-Uma alternativa promissora para solucionar o problema da queda constante dos sistemas de transporte público é a criação de um sistema que utilize a tecnologia blockchain. Através desse sistema, seria possível viabilizar transações rápidas e confiáveis, sem a necessidade de intermediação de terceiros, garantindo maior eficiência e segurança nas operações. Além disso, um sistema baseado em blockchain teria a capacidade de rastrear todas as transações e movimentações nas cidades, fornecendo informações precisas e em tempo real sobre a localização e o estado dos transportes públicos, permitindo que os usuários se programem e tomem decisões com maior precisão e efetividade. Essa solução não apenas melhoraria a qualidade de vida dos cidadãos, mas também ajudaria a aumentar a produtividade e a competitividade das cidades, atraindo investimentos e desenvolvimento econômico.
+
+A solução desenvolvida é baseada em blockchain, utilizando contratos inteligentes que geram tokens para serem utilizados como tickets de transporte no transporte público. Os usuários enviam dinheiro para um smart contract e, em troca, recebem esses tokens (tickets digitais). A ideia é melhorar a qualidade de vida dos cidadãos e ajudar a aumentar a produtividade, atraindo investimentos e desenvolvimento econômico.
+
+Além disso, também foi desenvolvida uma solução IoT que permite a validação desses tokens no momento em que o usuário se aproxima do sensor da catraca em uma estação, utilizando a chave privada da blockchain para fazer um get na rede e verificar se o usuário tem tokens suficientes para a passagem. Isso permite uma validação rápida e segura, sem a necessidade de intermediários e reduzindo a possibilidade de fraudes.
+
+Para o desenvolvimento do projeto, nossa equipe escolheu a rede da Celo por sua facilidade de teste. Utilizamos também o Metamask Snaps, que permite uma melhor visualização das informações de conversão do real para ether, além de fornecer insights valiosos sobre as transações realizadas.
+
+Outra grande vantagem da solução é a grande trackeabilidade proporcionada pela blockchain. Todas as transações realizadas, desde a compra dos tokens até a validação no sensor da catraca, ficam registradas na rede blockchain, permitindo que as autoridades e gestores do transporte público possam ter acesso a informações precisas e em tempo real sobre a movimentação dos usuários e a utilização dos transportes públicos.
+
+Essa grande trackeabilidade pode ser muito útil para a análise de dados e tomada de decisões estratégicas para a melhoria do sistema de transporte público. Por exemplo, pode ser possível identificar quais são as estações mais utilizadas, quais os horários de maior movimentação, quais as rotas mais frequentes, entre outras informações valiosas para aprimorar a operação e a oferta de transporte público.
+
+Além disso, a transparência proporcionada pela blockchain também pode contribuir para o combate à corrupção e à fraude, pois todas as transações ficam registradas e auditáveis, tornando mais difícil a ocorrência de irregularidades. Em resumo, a solução desenvolvida não apenas melhora a eficiência e segurança do sistema de transporte público, mas também proporciona uma grande riqueza de informações para gestores e autoridades responsáveis pela sua gestão.
 
 
 <strong>Esse é o projeto SmartTrans. </strong>
