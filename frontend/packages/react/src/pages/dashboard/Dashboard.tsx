@@ -28,7 +28,6 @@ const Dashboard: React.FC<Props> = (props) => {
                             method: 'eth_requestAccounts',
                         })
                         .then((accounts) => {
-                          console.log(accounts[0], res.data.wallet)
                             if (accounts[0] !== res.data.wallet) {
                                 setUser(null)
                                 localStorage.removeItem('token')

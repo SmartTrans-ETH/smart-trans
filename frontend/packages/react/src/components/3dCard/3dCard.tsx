@@ -11,8 +11,8 @@ function Card() {
   const myMesh = React.useRef<any>(null);
 
   useFrame(({ clock }) => {
-    myMesh.current.rotation.z = clock.getElapsedTime() / 2;
-    myMesh.current.rotation.x = clock.getElapsedTime() / 2;
+    myMesh.current.rotation.z = clock.getElapsedTime() * 2;
+    myMesh.current.rotation.x = clock.getElapsedTime() * 2;
   });
 
   return (

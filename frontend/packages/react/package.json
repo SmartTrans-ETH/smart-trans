@@ -29,6 +29,7 @@
     "react-spinners": "^0.13.8",
     "react-table": "^7.8.0",
     "react-toastify": "^9.1.2",
+    "smart-trans-snap": "^0.1.0",
     "styled-components": "^5.3.9",
     "three": "^0.151.2",
     "typescript": "^4.9.5",

@@ -53,37 +53,42 @@ const BuyTicket: React.FC<Props> = (props) => {
       await window.ethereum.request({
         method: 'eth_requestAccounts',
       });
-      await window.ethereum.request({
-        method: 'wallet_requestSnaps',
-        params: {
-          [process.env.REACT_APP_SNAP_ORIGIN!]: {},
-        },
-      });
 
-      await window.ethereum.request({
-        method: 'wallet_invokeSnap',
-        params: {
-          snapId: process.env.REACT_APP_SNAP_ORIGIN,
-          request: {
-            method: 'confirm',
-            params: {
-              ticketNumber,
+      try {
+        await window.ethereum.request({
+          method: 'wallet_requestSnaps',
+          params: {
+            [process.env.REACT_APP_SNAP_ORIGIN!]: {},
+          },
+        });
+
+        await window.ethereum.request({
+          method: 'wallet_invokeSnap',
+          params: {
+            snapId: process.env.REACT_APP_SNAP_ORIGIN,
+            request: {
+              method: 'confirm',
+              params: {
+                ticketNumber,
+              },
             },
           },
-        },
-      });
+        });
+      } catch (err) {
+        console.log("Não foi possível se conectar a Metamask Snaps")
+      }
 
       const res = await fetch(
         'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=BRL',
       );
       const prices = await res.json();
       const transactionValue = (ticketNumber * 4.4) / prices.RAW.ETH.BRL.PRICE;
-      console.log(transactionValue);
+
       const convertedTxValue = ethers.utils.parseUnits(
         transactionValue.toFixed(18).toString(),
         "ether",
       );
-      console.log('convertedTxValue', transactionValue.toFixed(18));
+
       const contract = await SmartTransContract();
       const tx = await contract.buy(ticketNumber, { value: convertedTxValue });
       await tx.wait();

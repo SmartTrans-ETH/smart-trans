@@ -24,7 +24,6 @@ class Trip {
     const result = [];
     for (let i = 0; i < trips.length; i++) {
       const station = await Station.get_station(trips[i].station_id);
-      console.log(trips[i]["createdAt"])
       result.push({
         date: moment(trips[i]["createdAt"]).format("DD/MM/YYYY"),
         hour: moment(trips[i]["createdAt"]).format("HH:mm"),

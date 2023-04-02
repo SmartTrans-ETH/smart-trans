@@ -13,8 +13,7 @@ import { getInsights } from './insights';
  * @returns The transaction insights.
  */
 export const onTransaction: OnTransactionHandler = async () => {
-  // const insights = await getInsights(transaction);
-  console.log('TRansdaiowdioaINsinIG');
+
   return {
     content: panel([
       heading('My Transaction Insights'),
