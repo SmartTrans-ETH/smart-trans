@@ -1,6 +1,6 @@
 # <img width="56" height="56" src="https://user-images.githubusercontent.com/99221221/229325827-65920be9-d275-41dc-a682-a1afbb7b6d74.png" alt="moken-logo"/> SmartTrans
 
-## [Trailer]()
+## [Trailer](https://www.youtube.com/watch?v=0ko9dB5iOfM)
 
 <img src="https://user-images.githubusercontent.com/99221221/229325626-232c180c-e069-40c1-ad65-29eb01350209.png" alt="app-screens-mockup"/>
 
