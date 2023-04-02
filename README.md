@@ -1,11 +1,12 @@
 # <img width="56" height="56" src="https://user-images.githubusercontent.com/99221221/229325827-65920be9-d275-41dc-a682-a1afbb7b6d74.png" alt="moken-logo"/> SmartTrans
 
-
 ## [Trailer]()
+
 <img src="https://user-images.githubusercontent.com/99221221/229325626-232c180c-e069-40c1-ad65-29eb01350209.png" alt="app-screens-mockup"/>
 
 ## Problema
-A queda constante dos sistemas de transporte nas grandes metrópoles brasileiras é um problema que afeta milhões de pessoas todos os dias. Os atrasos e interrupções no funcionamento dos transportes públicos são fonte de grande estresse e dificuldade para os cidadãos, que muitas vezes precisam se deslocar para trabalhar, estudar ou cumprir outras obrigações diárias. Além disso, os transtornos causados pelos problemas de transporte podem afetar a economia e a qualidade de vida de uma cidade, tornando-a menos produtiva e menos atraente para investimentos e turismo. 
+
+A queda constante dos sistemas de transporte nas grandes metrópoles brasileiras é um problema que afeta milhões de pessoas todos os dias. Os atrasos e interrupções no funcionamento dos transportes públicos são fonte de grande estresse e dificuldade para os cidadãos, que muitas vezes precisam se deslocar para trabalhar, estudar ou cumprir outras obrigações diárias. Além disso, os transtornos causados pelos problemas de transporte podem afetar a economia e a qualidade de vida de uma cidade, tornando-a menos produtiva e menos atraente para investimentos e turismo.
 
 ## Nossa Solução
 
@@ -21,29 +22,31 @@ Essa grande trackeabilidade pode ser muito útil para a análise de dados e toma
 
 Além disso, a transparência proporcionada pela blockchain também pode contribuir para o combate à corrupção e à fraude, pois todas as transações ficam registradas e auditáveis, tornando mais difícil a ocorrência de irregularidades. Em resumo, a solução desenvolvida não apenas melhora a eficiência e segurança do sistema de transporte público, mas também proporciona uma grande riqueza de informações para gestores e autoridades responsáveis pela sua gestão.
 
-
 <strong>Esse é o projeto SmartTrans. </strong>
-
-
 
 <img src="https://user-images.githubusercontent.com/99221221/229325685-33a633f6-4eca-4669-bb71-0d54391792de.png"/>
 
 ## Proposta de Valor
+
 <b>Tarefas do usuário</b>
+
 - Ir até o ponto de validação de recarga mais próximo
 - Recargas utilizando dinheiro físico, por falta de possibilidades
 - Problemas constantes de desmagentização dos cartões de transporte
 
 <b>Dores do usuário</b>
+
 - Servidores constantemente fora do ar
 - Falta de agilidade nos processos do cotidiano
 - Poucas plataformas confiáveis de recargas
 
 <b>Ganhos do usuário</b>
+
 - Sistema confiável
 - Recarga com tempo de resposta extremamente baixo
 - Agilidade e simplicidade no cotidiano
-- 
+-
+
 ## Documentação
 
 A documentação com informações da visão geral do projeto, análise de negócio, requisitos do sistema e elaboração do sistema pode poder ser encontrada clicando [aqui](https://docs.google.com/document/d/1ri0ooG3A1cBvLzudbv26BW_Fm4kQmBbB6WtQr-WMI84/edit?usp=sharing)
@@ -103,21 +106,21 @@ Esse projeto foi desenvolvido usando as seguintes tecnologias:
 - Solidity
 - Celo Testnet ( Alfajores )
 
-
 ---
 
 ## Rodando a aplicação
 
 Para rodar a aplicação há algumas dependências que precisam ser instaladas devido às tecnologias utilizadas, são elas:
 
--   Node Js
--   Extensão Metamask flask no navegador (IMPORTANTE)
+- Node Js
+- Extensão Metamask flask no navegador (IMPORTANTE)
 
 ### Variáveis de ambiente
 
-Para que tudo funcione corretamente, o sistema depende de algumas variáveis de ambiente. 
+Para que tudo funcione corretamente, o sistema depende de algumas variáveis de ambiente.
 
 Na pasta /backend, deve ser criado um arquivo .env que contém as seguintes variáveis:
+
 ```
 JWT_SECRET="senha"
 MQTT_HOST="host do mqtt"
@@ -129,30 +132,35 @@ SMART_TRANS_ADDRESS="endereço do contrato deployado"
 ```
 
 Na pasta /truffle, deve ser criado um arquivo .env que contém a seguinte variável:
+
 ```
 MNEMONIC="mnemonic phrase da carteira que deployou o contrato"
 ```
 
 Na pasta /frontend/packages/react, deve ser criado um arquivo .env que contém as seguintes variáveis:
+
 ```
 REACT_APP_SMART_TRANS_ADDRESS="endereço do contrato deployado"
 REACT_APP_SNAP_ORIGIN="local:http://localhost:8080"
 
 ```
 
-
-
 ### Rodando a blockchain e deployando os contratos
 
 Para compilar e deployar os contratos, entre na pasta /truffle por meio do comando
+
 ```
 cd truffle
 ```
+
 Depois, execute o comando
+
 ```
 npm install
 ```
+
 Após tudo isso, basta apenas mais um comando e o contrato será deployado
+
 ```
 truffle migrate --network testnet
 ```
@@ -160,22 +168,27 @@ truffle migrate --network testnet
 Após deployar o contrato, copie o arquivo abi gerado na pasta /truffle/build/contracts/smartTrans.json e coloque esse arquivo na pasta /backend/contract e /frontend/packages/react/src/contracts.
 
 ### Rodando o backend
+
 Para rodar o backend, execute os seguintes comandos
+
 ```
 cd backend
 npm install
 npm run start
 ```
 
-
 ### Rodando o frontend
+
 Para rodar o front, é necessário ter Yarn instalado na máquina. Caso você ainda não tenha realizado isso, segue o link com o processo:
 <a href="https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable">Yarn install</a>
 
 Para rodar o front, basta executar os seguintes comandos:
+
 ```
-cd frontend
-yarn install
+cd frontend/snap
+yarn serve
+cd ..
+cd react
 yarn start
 ```
 
