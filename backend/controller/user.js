@@ -111,10 +111,8 @@ class User {
     if (user.length == 0) {
       throw new Error("Usuário não encontrado");
     }
-    user = {
-      ...user,
-      birthday: moment(Date(user["birthday"])).format("DD/MM/YYYY"),
-    };
+    user.birthday = moment(Date(user["birthday"])).format("DD/MM/YYYY")
+    
     return user;
   }
 }
