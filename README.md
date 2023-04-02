@@ -123,19 +123,19 @@ JWT_SECRET="senha"
 MQTT_HOST="host do mqtt"
 MQTT_USERNAME="username do mqtt"
 MQTT_PASSWORD="senha do mqtt"
-MNEMONIC="mnemnic phrase"
+MNEMONIC="mnemnic phrase da carteira que deployou o contrato"
 SMART_TRANS_ADDRESS="endereço do contrato deployado"
 
 ```
 
 Na pasta /truffle, deve ser criado um arquivo .env que contém a seguinte variável:
 ```
-MNEMONIC="mnemonic phrase"
+MNEMONIC="mnemonic phrase da carteira que deployou o contrato"
 ```
 
 Na pasta /frontend/packages/react, deve ser criado um arquivo .env que contém as seguintes variáveis:
 ```
-REACT_APP_SMART_TRANS_ADDRESS="endereço do contrato"
+REACT_APP_SMART_TRANS_ADDRESS="endereço do contrato deployado"
 REACT_APP_SNAP_ORIGIN="local:http://localhost:8080"
 
 ```
@@ -156,6 +156,8 @@ Após tudo isso, basta apenas mais um comando e o contrato será deployado
 ```
 truffle migrate --network testnet
 ```
+
+Após deployar o contrato, copie o arquivo abi gerado na pasta /truffle/build/contracts/smartTrans.json e coloque esse arquivo na pasta /backend/contract e /frontend/packages/react/src/contracts.
 
 ### Rodando o backend
 Para rodar o backend, execute os seguintes comandos
